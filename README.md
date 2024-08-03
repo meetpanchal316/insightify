@@ -1,2 +1,2 @@
 # insightify
-college project hello
+college project
