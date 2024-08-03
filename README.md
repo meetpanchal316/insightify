@@ -1,2 +1,0 @@
-# insightify
-college project
