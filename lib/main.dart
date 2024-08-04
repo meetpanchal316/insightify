@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:insightify/secondpage.dart';
+// import 'package:insightify/secondpage.dart';
 
 void main() {
   runApp(const MyApp());
