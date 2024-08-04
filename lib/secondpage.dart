@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:insightify/main.dart';
 
 class secondpage extends StatefulWidget {
   const secondpage({super.key});
@@ -10,9 +11,13 @@ class secondpage extends StatefulWidget {
 class _secondpageState extends State<secondpage> {
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      // debugshr
-      appBar: AppBar(title: Text("secondpage")),
+    
+    return Scaffold(
+      // backgroundColor: bodyColor,
+      appBar: AppBar(
+        backgroundColor: appbarcolor,
+        title: Text("secondpage")
+      ),
     );
   }
 }

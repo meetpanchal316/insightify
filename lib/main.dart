@@ -5,6 +5,9 @@ void main() {
   runApp(const MyApp());
 }
 
+var bodyColor = Color.fromARGB(255, 24, 24, 24);
+var appbarcolor = Color.fromARGB(255, 0, 0, 0);
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -15,10 +18,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.dark(background: bodyColor),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'ANALYTICS'),
     );
   }
 }
@@ -37,25 +40,14 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: appbarcolor,
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text("click on this button to go to next page!"),
-            TextButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const secondpage(),
-                      ));
-                },
-                child: Text("click here"))
-          ],
-        ),
+      body: Column(
+        // mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          // all of the widgets for this page
+        ],
       ),
     );
   }
