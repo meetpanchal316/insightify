@@ -1,4 +1,5 @@
 name: insightify
+scheme: com.insightify
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -35,6 +36,14 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
+  pie_chart: ^5.4.0
+  provider: ^6.1.2
+  snippet_coder_utils: ^1.0.15
+  api_cache_manager: ^1.0.2
+  mongo_dart: ^0.10.3
+  shared_preferences: ^2.2.3
+  bcrypt: ^1.1.3
+  http: ^1.2.2
 
 dev_dependencies:
   flutter_test:
