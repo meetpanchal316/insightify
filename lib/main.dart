@@ -70,6 +70,6 @@ class MyApp extends StatelessWidget {
   Future<bool> verifySessionToken(String sessionToken) async {
     // Implement your logic to verify the session token against your server-side data
     // ...
-    return true; // Replace with your actual verification logic
+    return tru; // Replace with your actual verification logic
   }
 }
