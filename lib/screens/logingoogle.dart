@@ -27,19 +27,21 @@ class _loginwgoogleState extends State<loginwgoogle> {
       if (googleUser != null) {
         final GoogleSignInAuthentication googleAuth =
             await googleUser.authentication;
-        // authToken = googleAuth.accessToken;
-        await _loadAuthToken();
-        await saveAuthToken(authToken!);
-        // await _saveUsername(googleUser.displayName!);
-        // await _saveProfileImageUrl(googleUser.photoUrl!);
+
+        // Get the access token here
+        authToken = googleAuth.accessToken;
+        // Save the token only if it's not null
+        if (authToken != null) {
+          await saveAuthToken(authToken); // No need for '!' anymore
+        } else {
+          // Handle the case where you can't get a token
+          print('Error: Unable to obtain authentication token');
+          // You might want to show an error message to the user here
+        }
         await _saveuserdata(
             googleUser.displayName!, googleUser.email, googleUser.photoUrl!);
 
-        // Store the authentication token or other user data
-        final String token = googleAuth.accessToken!;
-        print('Signed in with Google: $token');
-
-        // Navigate to the home page after successful login
+        print('Signed in with Google: $authToken');
         Navigator.push(
             context,
             MaterialPageRoute(
@@ -97,7 +99,7 @@ class _loginwgoogleState extends State<loginwgoogle> {
   }
 
   Future<void> _saveuserdata(
-      String username, String email, String profileImageUrl) async {
+      String username, String email,String profileImageUrl) async {
     final prefs = await SharedPreferences.getInstance();
     prefs.setString('username', username);
     prefs.setString('email', email);
