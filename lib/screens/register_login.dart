@@ -334,7 +334,7 @@ class _RegisterPageState extends State<RegisterPage> {
         },
         body: jsonData,
       );
-      
+
       if (response.statusCode == 406) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             content: Text("BRO PLEASE FILL OUT ALL THE DETAILS FIRST!!!!")));
@@ -345,6 +345,11 @@ class _RegisterPageState extends State<RegisterPage> {
       } else if (response.statusCode == 201) {
         ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text("User registered successfully!")));
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => LoginPage(),
+            ));
       } else {
         final errorMessage = jsonDecode(response.body)['message'];
         ScaffoldMessenger.of(context).showSnackBar(
@@ -358,18 +363,6 @@ class _RegisterPageState extends State<RegisterPage> {
             content: Text(
                 'Registration failed. Please try again later.' + e.toString())),
       );
-    }
-  }
-
-  Future<void> fetchData() async {
-    try {
-      const String url = 'http://192.168.0.106:5000/users';
-      final response = await get(Uri.parse(url));
-      if (response.statusCode == 200) {
-        print('line 83 :: ${jsonDecode(response.body)}');
-      }
-    } catch (e) {
-      print('line 88 :: $e');
     }
   }
 }
